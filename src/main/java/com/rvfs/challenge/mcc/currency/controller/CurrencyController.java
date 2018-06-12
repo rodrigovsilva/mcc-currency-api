@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.lang.invoke.MethodHandles;
 
 @RestController
-@RequestMapping("currency")
+@RequestMapping("/api/currency")
 public class CurrencyController {
 
     /**

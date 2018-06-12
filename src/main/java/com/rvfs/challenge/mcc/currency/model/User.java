@@ -1,41 +1,41 @@
-package com.rvfs.challenge.mcc.currency.dto;
+package com.rvfs.challenge.mcc.currency.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.rvfs.challenge.mcc.currency.util.serializer.CalendarSerializer;
-import org.springframework.format.annotation.DateTimeFormat;
-
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  * Users data transfer objetcs.
  */
-public class UserDTO implements Serializable{
+@Entity
+@Table(name = "User")
+public class User implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id",unique=true, nullable = false)
     private Long id;
 
     private String email;
 
-    @JsonSerialize(using = CalendarSerializer.class)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Calendar birth;
 
-    private PostalAddressDTO address;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private PostalAddress address;
 
-    public UserDTO(Long id, String email, Calendar birth, PostalAddressDTO address) {
-        this.id = id;
+    public User(Long id, String email, Calendar birth, PostalAddress address) {
         this.email = email;
         this.birth = birth;
         this.address = address;
     }
 
-    public UserDTO(Long id, String email, Calendar birth) {
-        this.id = id;
+    public User(Long id, String email, Calendar birth) {
         this.email = email;
         this.birth = birth;
     }
 
-    public UserDTO() {
+    public User() {
     }
 
     public Long getId() {
@@ -62,11 +62,11 @@ public class UserDTO implements Serializable{
         this.birth = birth;
     }
 
-    public PostalAddressDTO getAddress() {
+    public PostalAddress getAddress() {
         return address;
     }
 
-    public void setAddress(PostalAddressDTO address) {
+    public void setAddress(PostalAddress address) {
         this.address = address;
     }
 }

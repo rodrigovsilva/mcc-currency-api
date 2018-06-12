@@ -1,9 +1,15 @@
-package com.rvfs.challenge.mcc.currency.dto;
+package com.rvfs.challenge.mcc.currency.model;
 
-/**
- * Postal Address data transfer object.
- */
-public class PostalAddressDTO {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "PostalAddress")
+public class PostalAddress implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String street;
 
@@ -13,14 +19,22 @@ public class PostalAddressDTO {
 
     private String country;
 
-    public PostalAddressDTO(String street, String zipCode, String city, String country) {
+    public PostalAddress(String street, String zipCode, String city, String country) {
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
         this.country = country;
     }
 
-    public PostalAddressDTO() {
+    public PostalAddress() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getStreet() {
