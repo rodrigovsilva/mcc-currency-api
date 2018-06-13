@@ -1,4 +1,4 @@
-package com.rvfs.challenge.mcc.currency.model;
+package com.rvfs.challenge.mcc.currency.service.dto.currencyconverter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 /**
- * Conversion rates model of a currency.
+ * CurrencyConversion rates model of a currency.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ConversionRates {

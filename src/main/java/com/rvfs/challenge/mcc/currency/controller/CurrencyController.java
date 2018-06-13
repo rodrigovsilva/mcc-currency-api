@@ -1,7 +1,7 @@
 package com.rvfs.challenge.mcc.currency.controller;
 
-import com.rvfs.challenge.mcc.currency.dto.ConversionDTO;
-import com.rvfs.challenge.mcc.currency.service.CurrencyConverterService;
+import com.rvfs.challenge.mcc.currency.dto.CurrencyConversionDTO;
+import com.rvfs.challenge.mcc.currency.service.CurrencyConversionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class CurrencyController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @Autowired
-    CurrencyConverterService currencyConverterService;
+    CurrencyConversionService currencyConverterService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/convert")
@@ -33,10 +33,10 @@ public class CurrencyController {
         ResponseEntity<Object> responseEntity = null;
 
         try {
-            ConversionDTO conversionDTO = new ConversionDTO();
+            CurrencyConversionDTO conversionDTO = new CurrencyConversionDTO();
             conversionDTO.setExchange("BRL");
-            //responseEntity = new ResponseEntity<>(currencyConverterService.getConversionRates(conversionDTO), HttpStatus.OK);
-            responseEntity = new ResponseEntity<>("OK 2", HttpStatus.OK);
+            responseEntity = new ResponseEntity<>(currencyConverterService.getConversionRates(conversionDTO), HttpStatus.OK);
+            //responseEntity = new ResponseEntity<>("OK 2", HttpStatus.OK);
 
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

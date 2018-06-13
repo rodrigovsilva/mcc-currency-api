@@ -1,4 +1,4 @@
-package com.rvfs.challenge.mcc.currency.model;
+package com.rvfs.challenge.mcc.currency.service.dto.currencyconverter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

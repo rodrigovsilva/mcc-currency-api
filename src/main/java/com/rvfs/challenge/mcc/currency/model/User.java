@@ -5,16 +5,16 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 /**
- * Users data transfer objetcs.
+ * User's model.
  */
 @Entity
 @Table(name = "User")
-public class User implements Serializable{
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id",unique=true, nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
     private String email;
@@ -25,12 +25,14 @@ public class User implements Serializable{
     private PostalAddress address;
 
     public User(Long id, String email, Calendar birth, PostalAddress address) {
+        this.id = id;
         this.email = email;
         this.birth = birth;
         this.address = address;
     }
 
     public User(Long id, String email, Calendar birth) {
+        this.id = id;
         this.email = email;
         this.birth = birth;
     }

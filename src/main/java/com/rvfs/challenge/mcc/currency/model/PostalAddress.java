@@ -3,6 +3,9 @@ package com.rvfs.challenge.mcc.currency.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Postal address model.
+ */
 @Entity
 @Table(name = "PostalAddress")
 public class PostalAddress implements Serializable{

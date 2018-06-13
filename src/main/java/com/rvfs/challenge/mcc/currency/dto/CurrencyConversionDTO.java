@@ -4,9 +4,9 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * Conversion Result data transfer object.
+ * CurrencyConversion Result data transfer object.
  */
-public class ConversionDTO {
+public class CurrencyConversionDTO {
 
     private String exchange;
 
